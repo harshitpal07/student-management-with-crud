@@ -1,0 +1,40 @@
+<%- include('./base/header.ejs') %>
+<div class="container">
+    <div class="row mt-1">
+        <h2 class="text-center text-danger">list of students</h2>
+        <table class="table text-center">
+            <tr>
+                <th>
+                    Roll No
+                </th>
+                <th>
+                    Student Name
+                </th>
+                <th>
+                    Father Name
+                </th>
+                <th>
+                    Aadhar Card Number
+                </th>
+                <th>
+                    Mobile No
+                </th>
+                <th>
+                    Actions
+                </th>
+            </tr>
+            <% students.forEach((student)=> { %>
+                <tr>
+                    <td><%= student.RollNo %></td>
+                    <td><%= student.Name %></td>
+                    <td><%= student.FatherName %></td>
+                    <td><%= student.AadharCardNumber %></td>
+                    <td><%= student.MobileNo %></td>
+                    
+                </tr>
+
+            <%}) %>
+        </table>
+    </div>
+</div>
+<%- include('./base/footer.ejs') %>

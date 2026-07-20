@@ -1,0 +1,435 @@
+<%- include('./base/header.ejs') %>
+  <div class="container">
+    <div class=" alert bg-success my-3">
+      <h4 class="text-center text-white"> Add New Student</h4>
+
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col"></div>
+      <div class="col">
+        <form action="/add/student" method="post">
+          <div>
+            <label class="form-label">Roll No</label>
+            <input type="number" class="form-control" placeholder="enter roll no" name="RollNo">
+           
+
+          </div>
+          <div>
+            <label class="form-label">Name</label>
+            <input type="text" class="form-control" placeholder="enter name" name="Name">
+
+          </div>
+          <div>
+            <label class="form-label">Father Name</label>
+            <input type="text" class="form-control" placeholder="Father name" name="FatherName">
+
+          </div>
+          <div>
+            <label class="form-label">Aadhar Number</label>
+            <input type="number" class="form-control" placeholder="enter aadhar number" name="AadharCardNumber">
+
+          </div>
+          <div>
+            <label class="form-label">Mobile Number</label>
+            <input type="number" class="form-control" placeholder="enter mobile number" name="MobileNo">
+          </div>
+          <input type="submit" class="btn btn-success" value="Add Student">
+         
+        </form>
+
+      </div>
+
+      <div class="col"></div>
+    </div>
+  </div>
+
+  <%- include('./base/footer.ejs') %>
+
+   <!-- //name meh wohi value deni h joh model meh likhi hai line no 15
+    //submit pr click krte line no 12 wala route call hoga -->
+
+
+
+<!-- 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Add New Student</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<style>
+  :root{
+    --ink:#ece8f5;
+    --paper:#000000;
+    --card:#15121e;
+    --moss:#7c3aed;
+    --moss-dark:#a855f7;
+    --moss-light:#1e1830;
+    --line:#2e2640;
+  }
+
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Segoe UI', system-ui, -apple-system, sans-serif;
+    min-height:100vh;
+    position:relative;
+    overflow-x:hidden;
+  }
+
+  .stars,
+  .stars2,
+  .stars3{
+    position:fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    pointer-events:none;
+    z-index:0;
+  }
+
+  .stars{
+    background-image:
+      radial-gradient(1.5px 1.5px at 20px 30px, #fff, transparent),
+      radial-gradient(1.5px 1.5px at 90px 120px, #e9d5ff, transparent),
+      radial-gradient(1px 1px at 150px 60px, #fff, transparent),
+      radial-gradient(1.5px 1.5px at 210px 180px, #fff, transparent),
+      radial-gradient(1px 1px at 260px 40px, #d8b4fe, transparent),
+      radial-gradient(1.5px 1.5px at 320px 150px, #fff, transparent),
+      radial-gradient(1px 1px at 30px 200px, #fff, transparent),
+      radial-gradient(1.5px 1.5px at 370px 90px, #fff, transparent);
+    background-repeat:repeat;
+    background-size:400px 220px;
+    animation:twinkle 4s ease-in-out infinite alternate, drift 90s linear infinite;
+    opacity:0.9;
+  }
+
+  .stars2{
+    background-image:
+      radial-gradient(1px 1px at 50px 50px, #fff, transparent),
+      radial-gradient(1px 1px at 130px 10px, #fff, transparent),
+      radial-gradient(1.2px 1.2px at 180px 140px, #e9d5ff, transparent),
+      radial-gradient(1px 1px at 240px 90px, #fff, transparent),
+      radial-gradient(1px 1px at 300px 190px, #fff, transparent),
+      radial-gradient(1px 1px at 10px 110px, #fff, transparent);
+    background-repeat:repeat;
+    background-size:320px 260px;
+    animation:twinkle 6s ease-in-out infinite alternate-reverse, drift 130s linear infinite reverse;
+    opacity:0.6;
+  }
+
+  .stars3{
+    background-image:
+      radial-gradient(2px 2px at 70px 80px, #f5d0fe, transparent),
+      radial-gradient(2px 2px at 220px 30px, #fff, transparent),
+      radial-gradient(1.5px 1.5px at 340px 170px, #d8b4fe, transparent),
+      radial-gradient(2px 2px at 120px 200px, #fff, transparent);
+    background-repeat:repeat;
+    background-size:450px 300px;
+    animation:twinkle 5s ease-in-out infinite alternate, drift 160s linear infinite;
+    opacity:0.5;
+  }
+
+  @keyframes twinkle{
+    0%{ opacity:0.35; }
+    50%{ opacity:1; }
+    100%{ opacity:0.5; }
+  }
+
+  @keyframes drift{
+    from{ background-position:0 0; }
+    to{ background-position:-1000px 500px; }
+  }
+
+  .container{
+    position:relative;
+    z-index:1;
+  }
+
+  @keyframes dropIn{
+    from{ opacity:0; transform:translateY(-14px); }
+    to{ opacity:1; transform:translateY(0); }
+  }
+
+  @keyframes riseIn{
+    from{ opacity:0; transform:translateY(24px); }
+    to{ opacity:1; transform:translateY(0); }
+  }
+
+  @keyframes fieldIn{
+    from{ opacity:0; transform:translateX(-10px); }
+    to{ opacity:1; transform:translateX(0); }
+  }
+
+  @keyframes glowPulse{
+    0%,100%{ box-shadow:0 6px 18px rgba(124,58,237,0.4); }
+    50%{ box-shadow:0 6px 30px rgba(168,85,247,0.65); }
+  }
+
+  .alert.bg-success{
+    background:linear-gradient(135deg, #7c3aed, #c026d3) !important;
+    border:none;
+    border-radius:12px;
+    box-shadow:0 6px 18px rgba(124,58,237,0.4);
+    animation:dropIn 1.1s ease both, glowPulse 5.5s ease-in-out 1.2s infinite;
+  }
+
+  .alert.bg-success h4{
+    letter-spacing:0.03em;
+    font-weight:600;
+    margin:0;
+    padding:6px 0;
+  }
+
+  .form-card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:2rem 2.25rem;
+    box-shadow:0 10px 30px rgba(0,0,0,0.4);
+    animation:riseIn 1.1s ease 0.3s both;
+  }
+
+  .field-group{
+    animation:fieldIn 0.9s ease both;
+  }
+
+  .field-group:nth-child(1){ animation-delay:0.55s; }
+  .field-group:nth-child(2){ animation-delay:0.75s; }
+  .field-group:nth-child(3){ animation-delay:0.95s; }
+  .field-group:nth-child(4){ animation-delay:1.15s; }
+  .field-group:nth-child(5){ animation-delay:1.35s; }
+
+  .form-label{
+    font-weight:600;
+    color:var(--moss-dark);
+    font-size:0.9rem;
+    letter-spacing:0.01em;
+    margin-bottom:0.35rem;
+  }
+
+  .form-control{
+    border:1.5px solid var(--line);
+    border-radius:8px;
+    padding:0.6rem 0.85rem;
+    background:var(--moss-light);
+    color:var(--ink);
+    transition:border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  }
+
+  .input-group-text{
+    background:var(--moss-light);
+    border:1.5px solid var(--line);
+    color:var(--moss-dark);
+    border-right:none;
+    border-radius:8px 0 0 8px;
+  }
+
+  .input-group .form-control{
+    border-left:none;
+    border-radius:0 8px 8px 0;
+  }
+
+  .input-group:focus-within .input-group-text{
+    border-color:var(--moss-dark);
+  }
+
+  .form-control.is-invalid{
+    border-color:#f43f5e !important;
+    background:#1c0f14;
+  }
+
+  .input-group:has(.is-invalid) .input-group-text{
+    border-color:#f43f5e;
+    color:#f43f5e;
+  }
+
+  .invalid-feedback{
+    display:none;
+    color:#fb7185;
+    font-size:0.8rem;
+    margin-top:0.3rem;
+  }
+
+  .invalid-feedback.show{
+    display:block;
+  }
+
+  .form-control.is-valid{
+    border-color:var(--moss-dark) !important;
+  }
+
+  .input-group:has(.is-valid) .input-group-text{
+    color:var(--moss-dark);
+  }
+
+  .form-control::placeholder{
+    color:#7c7291;
+  }
+
+  .form-control:focus{
+    border-color:var(--moss-dark);
+    background:#100c19;
+    color:var(--ink);
+    box-shadow:0 0 0 3px rgba(168,85,247,0.25);
+    outline:none;
+  }
+
+  .field-group{
+    margin-bottom:1.15rem;
+  }
+
+  .btn-success{
+    background:var(--moss);
+    border:none;
+    border-radius:8px;
+    padding:0.65rem 1.6rem;
+    font-weight:600;
+    letter-spacing:0.02em;
+    width:100%;
+    margin-top:0.5rem;
+    animation:fieldIn 0.9s ease 1.6s both;
+    transition:background 0.3s ease, transform 0.25s ease, box-shadow 0.3s ease;
+  }
+
+  .btn-success:hover{
+    background:var(--moss-dark);
+    transform:translateY(-2px);
+    box-shadow:0 8px 18px rgba(168,85,247,0.4);
+  }
+
+  .btn-success:active{
+    transform:translateY(0) scale(0.98);
+    box-shadow:0 3px 10px rgba(168,85,247,0.35);
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .alert.bg-success,
+    .form-card,
+    .field-group,
+    .btn-success,
+    .stars,
+    .stars2,
+    .stars3{
+      animation:none !important;
+    }
+  }
+
+  @media (max-width:767px){
+    .form-card{
+      padding:1.5rem 1.25rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <div class="stars"></div>
+  <div class="stars2"></div>
+  <div class="stars3"></div>
+
+  <div class="container">
+    <div class="alert bg-success my-3">
+      <h4 class="text-center text-white">Add New Student</h4>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col"></div>
+      <div class="col-12 col-md-8 col-lg-6">
+        <div class="form-card">
+          <form action="/add/student" method="post" id="studentForm" novalidate>
+            <div class="field-group">
+              <label class="form-label">Roll No</label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-hash"></i></span>
+                <input type="number" class="form-control" placeholder="enter roll no" name="RollNo" required min="1">
+              </div>
+              <div class="invalid-feedback">Roll no is required and must be positive.</div>
+            </div>
+
+            <div class="field-group">
+              <label class="form-label">Name</label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-person"></i></span>
+                <input type="text" class="form-control" placeholder="enter name" name="Name" required pattern="[A-Za-z ]{2,50}">
+              </div>
+              <div class="invalid-feedback">Enter a valid name (letters only).</div>
+            </div>
+
+            <div class="field-group">
+              <label class="form-label">Father Name</label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-person-badge"></i></span>
+                <input type="text" class="form-control" placeholder="Father name" name="FatherName" required pattern="[A-Za-z ]{2,50}">
+              </div>
+              <div class="invalid-feedback">Enter a valid father's name (letters only).</div>
+            </div>
+
+            <div class="field-group">
+              <label class="form-label">Aadhar Number</label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-credit-card-2-front"></i></span>
+                <input type="number" class="form-control" placeholder="enter aadhar number" name="AadharCardNumber" required pattern="[0-9]{12}" title="12 digit Aadhar number">
+              </div>
+              <div class="invalid-feedback">Aadhar number must be exactly 12 digits.</div>
+            </div>
+
+            <div class="field-group">
+              <label class="form-label">Mobile Number</label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-telephone"></i></span>
+                <input type="number" class="form-control" placeholder="enter mobile number" name="MobileNo" required pattern="[0-9]{10}" title="10 digit mobile number">
+              </div>
+              <div class="invalid-feedback">Mobile number must be exactly 10 digits.</div>
+            </div>
+
+            <input type="submit" class="btn btn-success" value="Add Student">
+          </form>
+        </div>
+      </div>
+      <div class="col"></div>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('studentForm');
+    const rules = {
+      RollNo: v => v.trim() !== '' && Number(v) > 0,
+      Name: v => /^[A-Za-z ]{2,50}$/.test(v.trim()),
+      FatherName: v => /^[A-Za-z ]{2,50}$/.test(v.trim()),
+      AadharCardNumber: v => /^[0-9]{12}$/.test(v.trim()),
+      MobileNo: v => /^[0-9]{10}$/.test(v.trim())
+    };
+
+    function validateField(input){
+      const isValid = rules[input.name](input.value);
+      input.classList.toggle('is-invalid', !isValid);
+      input.classList.toggle('is-valid', isValid);
+      const feedback = input.closest('.field-group').querySelector('.invalid-feedback');
+      feedback.classList.toggle('show', !isValid);
+      return isValid;
+    }
+
+    Object.keys(rules).forEach(name => {
+      const input = form.querySelector(`[name="${name}"]`);
+      input.addEventListener('input', () => validateField(input));
+      input.addEventListener('blur', () => validateField(input));
+    });
+
+    form.addEventListener('submit', function(e){
+      let allValid = true;
+      Object.keys(rules).forEach(name => {
+        const input = form.querySelector(`[name="${name}"]`);
+        if(!validateField(input)) allValid = false;
+      });
+      if(!allValid) e.preventDefault();
+    });
+  </script>
+
+</body>
+</html> -->
