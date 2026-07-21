@@ -18,5 +18,16 @@ route.get('/students',(req, res) => {
     studentcontroller.getStudents(req, res)
 
 })
+route.get('/student/edit/page/:id', (req, res) => {
+    studentcontroller.getStudentById (req, res)
 
+})
+route.post('/student/edit/:id', (req,res) => {
+    studentcontroller.editStudent(req, res)
+})
+
+
+route.get('/student/delete/page/:id',(req,res ) => {
+    studentcontroller.deleteStudent(req, res)
+})
 module.exports = route

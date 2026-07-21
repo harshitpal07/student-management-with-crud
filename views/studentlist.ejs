@@ -30,6 +30,11 @@
                     <td><%= student.FatherName %></td>
                     <td><%= student.AadharCardNumber %></td>
                     <td><%= student.MobileNo %></td>
+                    <td>
+                        <a href='/student/edit/page/<%= student._id %>'class="btn btn-primary">Edit</a>
+                         <a href='/student/delete/page/<%= student._id %>'class="btn btn-danger">Delete</a>
+                       
+                    </td>
                     
                 </tr>
 
