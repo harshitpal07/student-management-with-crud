@@ -32,8 +32,12 @@
                     <td><%= student.MobileNo %></td>
                     <td>
                         <a href='/student/edit/page/<%= student._id %>'class="btn btn-primary">Edit</a>
-                         <a href='/student/delete/page/<%= student._id %>'class="btn btn-danger">Delete</a>
-                       
+                         <!-- <a href='/student/delete/page/<%= student._id %>'class="btn btn-danger">Delete</a> -->
+
+                       <a href='/student/delete/page/<%= student._id %>'' class="btn btn-danger"
+                        onclick="return confirm('Are you sure you want to delete this student?')">
+                                    Delete
+                        </a>
                     </td>
                     
                 </tr>

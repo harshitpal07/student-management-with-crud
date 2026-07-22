@@ -59,7 +59,9 @@ async function editStudent (req, res) {
 }
 
 
-async function deleteStudent (req, res){ 
+async function deleteStudent (req, res){
+
+
     try {
         let id = req.params.id;
         await Student.deleteOne({_id: id})

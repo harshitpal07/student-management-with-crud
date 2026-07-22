@@ -11,31 +11,35 @@
       <div class="col">
         <form action="/add/student" method="post">
           <div>
-            <label class="form-label">Roll No</label>
-            <input type="number" class="form-control" placeholder="enter roll no" name="RollNo">
+            <label class="form-label" >Roll No</label>
+            <input type="number" class="form-control" placeholder="enter roll no" name="RollNo" required>
            
 
           </div>
           <div>
-            <label class="form-label">Name</label>
-            <input type="text" class="form-control" placeholder="enter name" name="Name">
+            <label class="form-label" >Name</label>
+            <input type="text" class="form-control" placeholder="enter name" name="Name" required>
 
           </div>
           <div>
             <label class="form-label">Father Name</label>
-            <input type="text" class="form-control" placeholder="Father name" name="FatherName">
+            <input type="text" class="form-control" placeholder="Father name" name="FatherName"  required>
 
           </div>
           <div>
-            <label class="form-label">Aadhar Number</label>
-            <input type="number" class="form-control" placeholder="enter aadhar number" name="AadharCardNumber">
+            <label class="form-label" >Aadhar Number</label>
+            <input type="number" class="form-control" placeholder="enter aadhar number" name="AadharCardNumber" required>
 
           </div>
           <div>
-            <label class="form-label">Mobile Number</label>
-            <input type="number" class="form-control" placeholder="enter mobile number" name="MobileNo">
+            <label class="form-label" >Mobile Number</label>
+            <input type="number" class="form-control" placeholder="enter mobile number" name="MobileNo" required>
           </div>
+         
           <input type="submit" class="btn btn-success" value="Add Student">
+          
+          <a href="/students" class="btn btn-danger" value="cancel" text align-center>Cancel</a>
+          
          
         </form>
 
